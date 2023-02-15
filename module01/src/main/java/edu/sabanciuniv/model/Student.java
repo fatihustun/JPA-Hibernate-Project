@@ -1,9 +1,6 @@
 package edu.sabanciuniv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -19,6 +16,9 @@ public class Student {
     private String emailAdress;
     private String major;
     private String phoneNumber;
+
+    @ManyToOne
+    private School school;
 
     //creating empty&full constructors
 
@@ -75,6 +75,14 @@ public class Student {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 
     // overriding equals & hashCode methods to compare objects
